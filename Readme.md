@@ -24,6 +24,15 @@
 docker compose up -d --build
 ```
 ### Endpoints
+- BASE URL = http://127.0.0.1:8080
+- PREFIX = api
+- VERSION = v1
+#### FULL URL = http://127.0.0.1:8080/api/v1/
+| Endpoints  | Description |  Methods | Params | Header |
+| :------:|  :-----------:| :-----------:| :-----------:| :-----------:|
+| /auth/register   | Register User  | POST | email, password | - |
+| /auth/login   | Login User  | POST | email, password | - |
+
 Response Codes
 | CODE  | Message |
 | :------:|  :-----------:|
@@ -46,15 +55,6 @@ Response Example
   }
 }
 ```
-
-- BASE URL = http://127.0.0.1:8080
-- PREFIX = api
-- VERSION = v1
-#### FULL URL = http://127.0.0.1:8080/api/v1/
-| Endpoints  | Description |  Methods | Params | Header |
-| :------:|  :-----------:| :-----------:| :-----------:| :-----------:|
-| /auth/register   | Register User  | POST | email, password | - |
-| /auth/login   | Login User  | POST | email, password | - |
 
 ### Author
 | Role  | Personal Info | Contact |
