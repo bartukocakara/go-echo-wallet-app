@@ -10,7 +10,7 @@ import (
 func CORSConfig(e *echo.Echo) {
 	config := middleware.CORSConfig{
 		AllowOrigins: []string{"*"},
-		AllowMethods: []string{http.MethodGet, http.MethodPut, http.MethodPost, http.MethodDelete},
+		AllowMethods: []string{http.MethodGet, http.MethodPut, http.MethodPatch, http.MethodPost, http.MethodDelete},
 	}
 	e.Use(middleware.CORSWithConfig(config))
 }

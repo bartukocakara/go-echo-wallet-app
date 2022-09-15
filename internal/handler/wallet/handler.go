@@ -13,7 +13,6 @@ import (
 
 type IWalletHandler interface {
 	Create(ctx echo.Context) error
-	Get(ctx echo.Context) error
 	List(ctx echo.Context) error	
 }
 
@@ -29,13 +28,6 @@ func NewWalletHandler(walletService service.IWalletService)*walletHandler{
 
 func(h *walletHandler) Create(ctx echo.Context) error {
 	var createDTO dto.CreateWalletDTO
-	// jsonBody := make(map[string]interface{})
-	// err := json.NewDecoder(ctx.Request().Body).Decode(&jsonBody)
-	// if err != nil {
-	// 	return nil
-	// }
-	// return ctx.JSON(http.StatusCreated, jsonBody)
-
 	errDTO := ctx.Bind(&createDTO)
 	if errDTO != nil {
 		response := helper.BuildErrorResponse(lib.ErrBadRequest, errDTO.Error(), helper.EmptyObj{})
