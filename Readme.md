@@ -55,9 +55,6 @@ Response Example
 | :------:|  :-----------:| :-----------:| :-----------:| :-----------:|
 | /auth/register   | Register User  | POST | email, password, name | Bearer {Token} |
 | /auth/login   | Login User  | POST | email, password | Bearer {Token} |
-| /auth/forgot-password   | Forgot Password  | POST | - | Bearer {Token} |
-| /platforms   | Fetch Platform List  | POST | - | Bearer {Token} |
-| /platforms/{platformId}/storeProducts | Store Products | GET | - | Bearer {Token} |
 
 ### Author
 | Role  | Personal Info | Contact |
