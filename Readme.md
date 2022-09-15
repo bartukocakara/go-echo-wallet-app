@@ -26,7 +26,7 @@
 docker compose up -d --build
 docker compose up
 ```
-### !! After Create table please run currencies sql
+### !!!!!!! After Create table please run currencies sql !!!!!!!!!!!!!!!!!!!
 
 ### Endpoints
 - BASE URL = http://127.0.0.1:8080
