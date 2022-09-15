@@ -17,8 +17,11 @@ Otomasyon
 ```mermaid
 flowchart LR
 
-A[Withdraw] --> B(Wallet Api Request)
+A[Withdraw] --> B(HTTP)
 B --> C{JWT Auth}
-C -->|Success| D[DB Operation]
-C -->|Error| E[No Auth Response]
+C -->|Success| D[DB Use Case]
+C -->|Error| B
+D -->F{Enough Balance}
+F -->|Success| H[DB operation] 
+F -->|Error| B 
 ```
