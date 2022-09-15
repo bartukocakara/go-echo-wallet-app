@@ -9,8 +9,9 @@ import (
 )
 
 func HandleQuery(ctx echo.Context) (map[string]interface{}, error){
-	from, err := TimeParam(ctx, "from")
-	to, err := TimeParam(ctx, "to")
+	from, err := timeParam(ctx, "from")
+	to, err := timeParam(ctx, "to")
+	report := isReportable(ctx)
 	limit, err := LimitParam(ctx)
 	status := parseStatus(ctx)
 	m := make(map[string]interface{} )
@@ -18,13 +19,14 @@ func HandleQuery(ctx echo.Context) (map[string]interface{}, error){
 	m["to"] = to
 	m["limit"] = limit
 	m["status"] = status
+	m["reportable"] = report
 	if err != nil {
 		return nil, err
 	}
 	return m, nil
 }
 
-func TimeParam(ctx echo.Context, name string) (time.Time, error) {
+func timeParam(ctx echo.Context, name string) (time.Time, error) {
 	// Now is default time
 	t := time.Now()
 	value := ctx.QueryParam(name)
@@ -43,7 +45,7 @@ func TimeParam(ctx echo.Context, name string) (time.Time, error) {
 const defaultLimit = 10
 func LimitParam(ctx echo.Context) (interface{}, error) {
 	param := ctx.QueryParam("limit")
-	typeCheck := IsNumericOnly(param)
+	typeCheck := isNumericOnly(param)
 	if typeCheck == false {
 		return nil, errors.New("Limit doesnt have integer value")
 	}
@@ -71,7 +73,7 @@ func parseStatus(ctx echo.Context) bool {
 	return status
 }
 
-func IsNumericOnly(str string) bool {
+func isNumericOnly(str string) bool {
 
     if len(str) == 0 {
         return false
@@ -83,4 +85,10 @@ func IsNumericOnly(str string) bool {
         }
     }
     return true
+}
+
+func isReportable(ctx echo.Context) bool {
+	reportable := ctx.QueryParam("reportable")
+	if reportable == "1" { return true }
+	return false
 }

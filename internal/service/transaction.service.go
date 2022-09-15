@@ -5,12 +5,13 @@ import (
 	"fmt"
 	"roof-stack/internal/dto"
 	"roof-stack/internal/entity"
+	lib "roof-stack/internal/lib/report"
 	"roof-stack/internal/repository"
 )
 
 type ITransactionService interface {
 	Create(dto dto.CreateTransactionDTO) (interface{}, error)
-	List( requestParams map[string]interface{}) ([]*entity.Transaction, error)
+	List( requestParams map[string]interface{}) (interface{}, error)
 	Get(id uint64 ) (*entity.Transaction, error)
 }
 
@@ -49,8 +50,13 @@ func(s *transactionService) Create(dto dto.CreateTransactionDTO) (interface{}, e
 		return "Transaction created successfully", nil
 }
 
-func(s *transactionService) List(requestParams map[string]interface{}) ([]*entity.Transaction, error) {
+func(s *transactionService) List(requestParams map[string]interface{}) (interface{}, error) {
 	res, err := s.transactionRepository.List(requestParams)
+	if requestParams["reportable"] == true {
+		reportData, err := lib.ReportData(res)
+		fmt.Println("data", reportData)
+		return reportData, err
+	}
 	if err != nil {
 		return nil, err
 	}

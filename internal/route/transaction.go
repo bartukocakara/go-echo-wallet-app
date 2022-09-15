@@ -17,7 +17,5 @@ func TransactionRoutes(prefix string,
 	transactionRoutes.POST("", handler.Create, middleware.IsLoggedIn)
 	transactionRoutes.POST("/wallets/:walletId", handler.Create, middleware.IsLoggedIn)
 	transactionRoutes.GET("/:transactionId", handler.Get)
-	transactionRoutes.GET("", handler.List)
-	transactionRoutes.POST("/report", handler.Report)
-	
+	transactionRoutes.GET("", handler.List)	
 }

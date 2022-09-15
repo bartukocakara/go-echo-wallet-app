@@ -81,6 +81,12 @@ func (h *transactionHandler) Get(ctx echo.Context) error {
 }
 
 func (h *transactionHandler) Report(ctx echo.Context) error {
-
-	return nil
+	requestParams, err := query.HandleQuery(ctx)
+	if err != nil {
+		res := helper.BuildErrorResponse(lib.ErrBadRequest, err.Error(), err.Error())
+		return ctx.JSON(http.StatusBadRequest, res)
+	}
+	transactions, err  := h.transactionService.List(requestParams)
+	res := helper.BuildResponse(true, "OK", transactions)
+	return ctx.JSON(http.StatusOK, res)
 }
