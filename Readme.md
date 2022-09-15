@@ -53,8 +53,8 @@ Response Example
 #### FULL URL = http://127.0.0.1:8080/api/v1/
 | Endpoints  | Description |  Methods | Params | Header |
 | :------:|  :-----------:| :-----------:| :-----------:| :-----------:|
-| /auth/register   | Register User  | POST | email, password, name | Bearer {Token} |
-| /auth/login   | Login User  | POST | email, password | Bearer {Token} |
+| /auth/register   | Register User  | POST | email, password, name | - |
+| /auth/login   | Login User  | POST | email, password | - |
 
 ### Author
 | Role  | Personal Info | Contact |
