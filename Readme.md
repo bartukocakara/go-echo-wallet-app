@@ -27,7 +27,7 @@ docker compose up -d --build
 docker compose up
 ```
 ### !!!!!!! After Create table please run currencies sql !!!!!!!!!!!!!!!!!!!
-
+<a href="https://github.com/bartukocakara/roof-stacks-case/blob/master/create_currencies.sql"> currencies_sql </a>
 ### Endpoints
 - BASE URL = http://127.0.0.1:8080
 - PREFIX = api
