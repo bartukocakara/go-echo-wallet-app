@@ -9,7 +9,7 @@ Getir
 Api(Golang) Layer Design
 ```mermaid
   flowchart LR;
-      Router-->Handler-->Service-->Cache-->Repository-->Database;
+      Router-->Handler-->Service-->Repository-->Database;
 ```
 
 Otomasyon
@@ -17,8 +17,8 @@ Otomasyon
 ```mermaid
 flowchart LR
 
-A[Cron Job] --> B(Platform Api Request)
-B --> C{Decision}
-C -->|Success| D[Store Data to DB]
-C -->|Error| E[Send notification to Merchant]
+A[Withdraw] --> B(Wallet Api Request)
+B --> C{JWT Auth}
+C -->|Success| D[DB Operation]
+C -->|Error| E[No Auth Response]
 ```
