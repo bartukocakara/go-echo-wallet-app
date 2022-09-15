@@ -1,0 +1,7 @@
+1) echopg_db
+
+2)
+-   host = echo_db
+
+-   db = test_db
+

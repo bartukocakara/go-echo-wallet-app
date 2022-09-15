@@ -1,0 +1,4 @@
+.env
+./tmp
+tmp
+./cmd/api/tmp
