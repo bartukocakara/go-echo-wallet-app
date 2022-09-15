@@ -23,6 +23,7 @@
 ### Docker
 ```
 docker compose up -d --build
+docker compose up
 ```
 ### Endpoints
 - BASE URL = http://127.0.0.1:8080
