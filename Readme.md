@@ -37,7 +37,8 @@ docker compose up
 | /wallets   | Wallet List  | GET | - | Bearer {TOKEN} |
 | /wallets   | Wallet Create  | POST | title,currency_id,balance,limit,amount | Bearer {TOKEN} |
 | /transactions/wallets/{{walletId}}   | Transaction Withdraw  | POST | currency_id,action_type('WITHDRAW,DEPOSIT'),amount | Bearer {TOKEN} |
-| /transactions   | Transaction Withdraw  | GET | QP ? from,to,limit | Bearer {TOKEN} |
+| /transactions   | Transaction List Query  | GET | QP ? from,to,limit | Bearer {TOKEN} |
+| /transactions   | Transaction Report | GET | QP ? from,to,limit,reportable | Bearer {TOKEN} |
 
 Response Codes
 | CODE  | Message |
