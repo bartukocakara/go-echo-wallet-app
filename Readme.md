@@ -1,4 +1,4 @@
-# Multiplatform Backend Application
+# Wallet App Backend Application
 | No. | Topic                                                                   |
 | --- | ----------------------------------------------------------------------- |
 | 1   | [**Purpose**](#Purpose) |
