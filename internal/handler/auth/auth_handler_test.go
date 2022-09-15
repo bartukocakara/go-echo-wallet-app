@@ -25,12 +25,11 @@ var (
 )
 
 var mockDB = `{
-    "name": "bartu",
-    "email": "bartu21@gmail.com",
+    "email": "bartukocakaraa@gmail.com",
     "password": "123456"
 }`
 
-var testRegisterResponseJSON = `{"status":true,"message":"Created","errors":null,"data":{"id":12,"name":"bartu","email":"bartu21@gmail.com","role":"user"}`
+var testRegisterResponseJSON = `{"status":true,"message":"Created","errors":null,"data":{"id":3,"first_name": "","last_name": "","email": "bartukocakaraa@gmail.com","token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJyb2xlIjoidXNlciIsImZpcnN0X25hbWUiOiIiLCJleHAiOjE2NjM1MTIwNTR9.bKHGR1CMWZndmkIluy8GHhGrmrT_PrPCE5Z3RuKHBxo","created_at": "2022-09-15T17:40:54.755696+03:00","updated_at": "2022-09-15T17:40:54.755696+03:00"}}`
 
 func TestRegister(t *testing.T) {
 	// Setup

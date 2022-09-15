@@ -34,6 +34,10 @@ docker compose up
 | :------:|  :-----------:| :-----------:| :-----------:| :-----------:|
 | /auth/register   | Register User  | POST | email, password | - |
 | /auth/login   | Login User  | POST | email, password | - |
+| /wallets   | Wallet List  | GET | - | Bearer {TOKEN} |
+| /wallets   | Wallet Create  | POST | title,currency_id,balance,limit,amount | Bearer {TOKEN} |
+| /transactions/wallets/{{walletId}}   | Transaction Withdraw  | POST | currency_id,action_type('WITHDRAW,DEPOSIT'),amount | Bearer {TOKEN} |
+| /transactions   | Transaction Withdraw  | GET | QP ? from,to,limit | Bearer {TOKEN} |
 
 Response Codes
 | CODE  | Message |
@@ -48,11 +52,30 @@ Response Codes
 Response Example
 ```
 {
-  "code": 200,
-  "message": "OK",
-  "data" : {
-    "list" : [
-      "id" : 1
+    "status": true,
+    "message": "Created",
+    "errors": null,
+     "data": [
+        {
+            "id": 5,
+            "status": true,
+            "type": "WITHDRAW",
+            "currency_type": 1,
+            "to_wallet_id": 1,
+            "list_price": 100,
+            "created_at": "2022-09-13T01:59:33.90382+03:00",
+            "updated_at": "2022-09-13T01:59:33.90382+03:00"
+        },
+        {
+            "id": 6,
+            "status": true,
+            "type": "WITHDRAW",
+            "currency_type": 1,
+            "to_wallet_id": 1,
+            "list_price": 100,
+            "created_at": "2022-09-13T01:59:34.632979+03:00",
+            "updated_at": "2022-09-13T01:59:34.632979+03:00"
+        }
     ]
   }
 }
